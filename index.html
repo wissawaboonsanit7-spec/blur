@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BLUR | Personal Collection</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #101010;
+    color: #f5f2e9;
+    font-family: 'Kanit', sans-serif;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    width: 100%;
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #101010;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 38px;
+    color: white;
+}
+
+.logo span {
+    color: #e9d34b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #ddd;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #e9d34b;
+}
+
+.nav-year {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 2px;
+}
+
+/* ===== HOME ===== */
+.hero {
+    height: 90vh;
+    min-height: 600px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8%;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.85),
+        rgba(0,0,0,.15)
+    ),
+    url("images/blur-band.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-small {
+    color: #e9d34b;
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(130px, 23vw, 300px);
+    line-height: .85;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: #e9d34b;
+}
+
+.hero-description {
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: 2px;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    border: 1px solid white;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.hero-button:hover {
+    background: #e9d34b;
+    color: black;
+    border-color: #e9d34b;
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 8%;
+    right: 8%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #ddd;
+    letter-spacing: 2px;
+}
+
+/* ===== GENERAL SECTION ===== */
+.section {
+    padding: 110px 8%;
+}
+
+.section-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+    margin-bottom: 65px;
+    color: #e9d34b;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* ===== STORY ===== */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.story-title h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(80px, 11vw, 145px);
+    line-height: .9;
+}
+
+.story-title span {
+    color: #e9d34b;
+}
+
+.story-text {
+    padding-top: 10px;
+}
+
+.story-text h3 {
+    font-size: 25px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.story-text p {
+    font-size: 15px;
+    color: #aaa;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.story-year {
+    font-family: 'Anton', sans-serif;
+    font-size: 38px;
+    color: #e9d34b;
+    margin-top: 30px;
+}
+
+.story-photo {
+    margin-top: 75px;
+    position: relative;
+}
+
+.story-photo img {
+    height: 480px;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.story-photo span {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+/* ===== COLLECTION ===== */
+.collection {
+    background: #e9e6dc;
+    color: #111;
+}
+
+.collection .section-top {
+    border-color: #aaa;
+    color: #222;
+}
+
+.collection-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(60px, 10vw, 120px);
+    line-height: 1;
+}
+
+.collection-title span {
+    color: #aaa;
+}
+
+.collection-description {
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.album-card {
+    cursor: pointer;
+}
+
+.album-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: .4s;
+}
+
+.album-card:hover img {
+    filter: grayscale(0%);
+    transform: translateY(-8px);
+}
+
+.album-info {
+    padding: 18px 0;
+}
+
+.album-info span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #777;
+}
+
+.album-info h3 {
+    font-size: 23px;
+    margin: 5px 0;
+}
+
+.album-info p {
+    font-size: 12px;
+    color: #777;
+}
+
+/* ===== MEMBERS ===== */
+.members {
+    background: #101010;
+}
+
+.members-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(60px, 9vw, 110px);
+    margin-bottom: 55px;
+}
+
+.members-title span {
+    color: #e9d34b;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.member-card img {
+    height: 330px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: .4s;
+}
+
+.member-card:hover img {
+    filter: grayscale(0%);
+}
+
+.member-info {
+    border-top: 2px solid #e9d34b;
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.member-info span {
+    color: #e9d34b;
+    font-size: 12px;
+}
+
+.member-info h3 {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.member-info p {
+    color: #888;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+/* ===== ABOUT ===== */
+.about {
+    background: #e9d34b;
+    color: #111;
+}
+
+.about .section-top {
+    border-color: rgba(0,0,0,.3);
+    color: #222;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.about-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(100px, 15vw, 190px);
+    line-height: .85;
+}
+
+.about-title span {
+    color: white;
+}
+
+.about-text {
+    padding-top: 20px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+.about-text h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
+    margin-top: 35px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #101010;
+    padding: 60px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+}
+
+footer h2 span {
+    color: #e9d34b;
+}
+
+footer p {
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+footer a {
+    color: #e9d34b;
+    font-size: 12px;
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px) {
+
+    .navbar {
+        height: auto;
+        padding: 20px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        order: 3;
+        gap: 20px;
+        overflow-x: auto;
+    }
+
+    .nav-links a {
+        white-space: nowrap;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 550px;
+        height: 75vh;
+        padding: 0 6%;
+    }
+
+    .hero h1 {
+        font-size: 125px;
+    }
+
+    .hero-bottom {
+        left: 6%;
+        right: 6%;
+        font-size: 8px;
+    }
+
+    .section {
+        padding: 75px 6%;
+    }
+
+    .section-top {
+        font-size: 9px;
+        margin-bottom: 40px;
+    }
+
+    .story-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .story-photo img {
+        height: 280px;
+    }
+
+    .album-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .member-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 15px;
+    }
+
+    .member-card img {
+        height: 220px;
+    }
+
+    .member-info h3 {
+        font-size: 15px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HOME ================= -->
+
+<nav class="navbar">
+
+    <a href="#home" class="logo">
+        BLUR<span>.</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="#home">HOME</a>
+        <a href="#story">STORY</a>
+        <a href="#collection">COLLECTION</a>
+        <a href="#members">MEMBERS</a>
+        <a href="#about">ABOUT</a>
+    </div>
+
+    <div class="nav-year">
+        EST. 1988
+    </div>
+
+</nav>
+
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="hero-small">
+            THE BRITPOP LEGEND / PERSONAL COLLECTION
+        </p>
+
+        <h1>BLUR<span>.</span></h1>
+
+        <p class="hero-description">
+            A COLLECTION OF MUSIC,<br>
+            MEMORIES AND BRITPOP CULTURE.
+        </p>
+
+        <a href="#story" class="hero-button">
+            DISCOVER THE BAND ↗
+        </a>
+
+    </div>
+
+    <div class="hero-bottom">
+        <span>BRITISH ROCK BAND</span>
+        <span>LONDON / ENGLAND</span>
+        <span>1988 — PRESENT</span>
+    </div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section class="section" id="story">
+
+    <div class="section-top">
+        <span>01 / THE STORY</span>
+        <span>ABOUT THE BAND</span>
+    </div>
+
+    <div class="story-grid">
+
+        <div class="story-title">
+            <h2>
+                THE<br>
+                STORY<br>
+                OF <span>BLUR</span>
+            </h2>
+        </div>
+
+        <div class="story-text">
+
+            <h3>
+                More than just a band.<br>
+                A generation of British music.
+            </h3>
+
+            <p>
+                Blur เป็นวงดนตรีร็อกจากประเทศอังกฤษ
+                ก่อตั้งขึ้นในปี 1988 ที่กรุงลอนดอน
+                โดยมีสมาชิกทั้งหมด 4 คน
+            </p>
+
+            <p>
+                Blur เป็นหนึ่งในวงดนตรีสำคัญของกระแส
+                Britpop ในยุค 1990s มีเอกลักษณ์ทางดนตรี
+                ที่ผสมผสาน Alternative Rock และ Indie Rock
+            </p>
+
+            <p>
+                ผลงานของพวกเขาสะท้อนวัฒนธรรม
+                และชีวิตของผู้คนในสังคมอังกฤษ
+                ผ่านบทเพลงและงานศิลปะ
+            </p>
+
+            <div class="story-year">
+                1988 — 2026
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="story-photo">
+
+        <img src="images/blur-band.jpg"
+             alt="Blur Band">
+
+        <span>FOUR MEMBERS / ONE LEGACY</span>
+
+    </div>
+
+</section>
+
+
+<!-- ================= COLLECTION ================= -->
+
+<section class="section collection" id="collection">
+
+    <div class="section-top">
+        <span>02 / COLLECTION</span>
+        <span>SELECTED WORKS</span>
+    </div>
+
+    <h2 class="collection-title">
+        THE <span>COLLECTION</span>
+    </h2>
+
+    <p class="collection-description">
+        A selection of albums, music and memories.
+    </p>
+
+    <div class="album-grid">
+
+        <div class="album-card">
+
+            <img src="images/parklife.jpg"
+                 alt="Parklife Album">
+
+            <div class="album-info">
+                <span>1994 / ALBUM</span>
+                <h3>Parklife</h3>
+                <p>A defining Britpop classic.</p>
+            </div>
+
+        </div>
+
+
+        <div class="album-card">
+
+            <img src="images/great-escape.webp"
+                 alt="The Great Escape Album">
+
+            <div class="album-info">
+                <span>1995 / ALBUM</span>
+                <h3>The Great Escape</h3>
+                <p>A portrait of British life.</p>
+            </div>
+
+        </div>
+
+
+        <div class="album-card">
+
+            <img src="images/blur-album.jpg"
+                 alt="Blur Album">
+
+            <div class="album-info">
+                <span>1997 / ALBUM</span>
+                <h3>Blur</h3>
+                <p>A new alternative direction.</p>
+            </div>
+
+        </div>
+
+
+        <div class="album-card">
+
+            <img src="images/13-album.webp"
+                 alt="13 Album">
+
+            <div class="album-info">
+                <span>1999 / ALBUM</span>
+                <h3>13</h3>
+                <p>An emotional musical journey.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MEMBERS ================= -->
+
+<section class="section members" id="members">
+
+    <div class="section-top">
+        <span>03 / THE MEMBERS</span>
+        <span>FOUR INDIVIDUALS</span>
+    </div>
+
+    <h2 class="members-title">
+        MEET THE <span>BAND</span>
+    </h2>
+
+    <div class="member-grid">
+
+        <div class="member-card">
+
+            <img src="images/damon.jpg"
+                 alt="Damon Albarn">
+
+            <div class="member-info">
+                <span>01 / VOCALS</span>
+                <h3>DAMON ALBARN</h3>
+                <p>VOCALS / KEYBOARDS</p>
+            </div>
+
+        </div>
+
+
+        <div class="member-card">
+
+            <img src="images/graham.jpg"
+                 alt="Graham Coxon">
+
+            <div class="member-info">
+                <span>02 / GUITAR</span>
+                <h3>GRAHAM COXON</h3>
+                <p>GUITAR / VOCALS</p>
+            </div>
+
+        </div>
+
+
+        <div class="member-card">
+
+            <img src="images/alex.jpg"
+                 alt="Alex James">
+
+            <div class="member-info">
+                <span>03 / BASS</span>
+                <h3>ALEX JAMES</h3>
+                <p>BASS GUITAR</p>
+            </div>
+
+        </div>
+
+
+        <div class="member-card">
+
+            <img src="images/dave.jpg"
+                 alt="Dave Rowntree">
+
+            <div class="member-info">
+                <span>04 / DRUMS</span>
+                <h3>DAVE ROWNTREE</h3>
+                <p>DRUMS</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section about" id="about">
+
+    <div class="section-top">
+        <span>04 / ABOUT THIS PROJECT</span>
+        <span>PERSONAL COLLECTION</span>
+    </div>
+
+    <div class="about-grid">
+
+        <h2 class="about-title">
+            WHY<br>
+            <span>BLUR?</span>
+        </h2>
+
+        <div class="about-text">
+
+            <p>
+                Collection นี้จัดทำขึ้นจากความชื่นชอบ
+                ในวงดนตรี Blur และวัฒนธรรม Britpop
+                ที่มีเอกลักษณ์โดดเด่นทั้งด้านดนตรี
+                ภาพลักษณ์ และงานศิลปะ
+            </p>
+
+            <p>
+                เว็บไซต์นี้รวบรวมเรื่องราว ผลงานเพลง
+                ภาพถ่าย และข้อมูลสำคัญของวง
+                เพื่อถ่ายทอดความน่าสนใจของ Blur
+                ผ่านการออกแบบ Typography
+                ภาพถ่าย และ Graphic Design
+            </p>
+
+            <h3>
+                MY PERSONAL<br>
+                MUSIC COLLECTION.
+            </h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>BLUR<span>.</span></h2>
+
+    <p>
+        THE BRITPOP COLLECTION / 2026
+    </p>
+
+    <a href="#home">
+        BACK TO TOP ↑
+    </a>
+
+</footer>
+
+
+</body>
+</html>

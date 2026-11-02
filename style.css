@@ -1,0 +1,539 @@
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #101010;
+    color: #f5f2e9;
+    font-family: 'Kanit', sans-serif;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #101010;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 38px;
+    color: white;
+}
+
+.logo span {
+    color: #e9d34b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #ddd;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #e9d34b;
+}
+
+.nav-year {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   HOME / HERO
+========================= */
+
+.hero {
+    height: 90vh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.85),
+        rgba(0,0,0,.15)
+    ),
+    url("images/blur-band.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-small {
+    color: #e9d34b;
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(130px, 23vw, 300px);
+    line-height: .85;
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: #e9d34b;
+}
+
+.hero-description {
+    margin-top: 30px;
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: 2px;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    border: 1px solid white;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.hero-button:hover {
+    background: #e9d34b;
+    color: black;
+    border-color: #e9d34b;
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 8%;
+    right: 8%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #ddd;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+.section {
+    padding: 110px 8%;
+}
+
+.section-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+    margin-bottom: 65px;
+    color: #e9d34b;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   STORY
+========================= */
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.story-title h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(80px, 11vw, 145px);
+    line-height: .9;
+}
+
+.story-title span {
+    color: #e9d34b;
+}
+
+.story-text {
+    padding-top: 10px;
+}
+
+.story-text h3 {
+    font-size: 25px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.story-text p {
+    font-size: 15px;
+    color: #aaa;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.story-year {
+    font-family: 'Anton', sans-serif;
+    font-size: 38px;
+    color: #e9d34b;
+    margin-top: 30px;
+}
+
+.story-photo {
+    margin-top: 75px;
+    position: relative;
+}
+
+.story-photo img {
+    height: 480px;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.story-photo span {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   COLLECTION
+========================= */
+
+.collection {
+    background: #e9e6dc;
+    color: #111;
+}
+
+.collection .section-top {
+    border-color: #aaa;
+    color: #222;
+}
+
+.collection-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(60px, 10vw, 120px);
+    line-height: 1;
+}
+
+.collection-title span {
+    color: #aaa;
+}
+
+.collection-description {
+    color: #666;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.album-card {
+    cursor: pointer;
+}
+
+.album-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: .4s;
+}
+
+.album-card:hover img {
+    filter: grayscale(0%);
+    transform: translateY(-8px);
+}
+
+.album-info {
+    padding: 18px 0;
+}
+
+.album-info span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #777;
+}
+
+.album-info h3 {
+    font-size: 23px;
+    margin: 5px 0;
+}
+
+.album-info p {
+    font-size: 12px;
+    color: #777;
+}
+
+/* =========================
+   MEMBERS
+========================= */
+
+.members {
+    background: #101010;
+}
+
+.members-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(60px, 9vw, 110px);
+    margin-bottom: 55px;
+}
+
+.members-title span {
+    color: #e9d34b;
+}
+
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.member-card img {
+    height: 330px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: .4s;
+}
+
+.member-card:hover img {
+    filter: grayscale(0%);
+}
+
+.member-info {
+    border-top: 2px solid #e9d34b;
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+.member-info span {
+    color: #e9d34b;
+    font-size: 12px;
+}
+
+.member-info h3 {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.member-info p {
+    color: #888;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: #e9d34b;
+    color: #111;
+}
+
+.about .section-top {
+    border-color: rgba(0,0,0,.3);
+    color: #222;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.about-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(100px, 15vw, 190px);
+    line-height: .85;
+}
+
+.about-title span {
+    color: white;
+}
+
+.about-text {
+    padding-top: 20px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+.about-text h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
+    margin-top: 35px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #101010;
+    padding: 60px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+}
+
+footer h2 span {
+    color: #e9d34b;
+}
+
+footer p {
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+footer a {
+    color: #e9d34b;
+    font-size: 12px;
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: auto;
+        padding: 20px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        order: 3;
+        gap: 20px;
+        overflow-x: auto;
+    }
+
+    .nav-links a {
+        white-space: nowrap;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 550px;
+        height: 75vh;
+        padding: 0 6%;
+    }
+
+    .hero h1 {
+        font-size: 125px;
+    }
+
+    .hero-bottom {
+        left: 6%;
+        right: 6%;
+        font-size: 8px;
+    }
+
+    .section {
+        padding: 75px 6%;
+    }
+
+    .section-top {
+        font-size: 9px;
+        margin-bottom: 40px;
+    }
+
+    .story-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .story-photo img {
+        height: 280px;
+    }
+
+    .album-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .member-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 15px;
+    }
+
+    .member-card img {
+        height: 220px;
+    }
+
+    .member-info h3 {
+        font-size: 15px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+}
+
